@@ -24,5 +24,10 @@ namespace Company.Controllers
             return _repository.GetStatistics();
         }
 
+        [Route("api/postbyrange")]
+        public IEnumerable<OrganisationSizeDTO> PostByRange([FromBody]Employee employee)
+        {
+            return _repository.PostByRange(employee);
+        }
     }
 }

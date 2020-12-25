@@ -28,7 +28,7 @@ namespace Company.Controllers
             var organisation = _repository.GetById(id);
             if (organisation == null)
             {
-                return NotFound();
+                return BadRequest();
             }
             return Ok(organisation);
         }

@@ -10,5 +10,6 @@ namespace Company.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int NumOfEmployees { get; set; }
+        public decimal AverageSalary { get; set; }
     }
 }

@@ -16,6 +16,6 @@ namespace Company.Repository.Interfaces
         void Delete(Employee employee);
 
        IEnumerable<OrganisationSizeDTO> GetStatistics();
-       //IEnumerable<OrganisationSizeDTO> GetByRange(int start);
+       IEnumerable<OrganisationSizeDTO> PostByRange(Employee employee);
     }
 }

@@ -77,5 +77,23 @@ namespace Company.Repository
                 ).OrderByDescending(o => o.NumOfEmployees);
             return result.AsEnumerable();
         }
+
+        public IEnumerable<OrganisationSizeDTO> PostByRange(Employee employee)
+        {
+            IEnumerable<Employee> employees = GetAll();
+            var result = employees.GroupBy(
+                e => e.Organisation,
+                e => e.Salary,
+                (org, orgSize) => new OrganisationSizeDTO()
+                {
+                    Id = org.Id,
+                    Name = org.Name,
+                    AverageSalary = orgSize.Average()
+                }
+                ).Where(s=>s.AverageSalary > employee.Salary).OrderBy(o => o.AverageSalary);
+            return result.AsEnumerable();
+   
+        }
+
     }
 }
