@@ -18,6 +18,31 @@ namespace Company.Controllers
             _repository = repository;
         }
 
+        public IEnumerable<Employee> GetAll()
+        {
+            return _repository.GetAll();
+        }
+
+        public Employee GetById(int id)
+        {
+            return _repository.GetById(id);
+        }
+
+        public void Add(Employee employee)
+        {
+            _repository.Add(employee);
+        }
+
+        public void Update(Employee employee)
+        {
+            _repository.Update(employee);
+        }
+
+        public void Delete(Employee employee)
+        {
+            _repository.Delete(employee);
+        }
+
         [Route("api/statistics")]
         public IEnumerable<OrganisationSizeDTO> GetStatistics()
         {
@@ -29,5 +54,7 @@ namespace Company.Controllers
         {
             return _repository.PostByRange(employee);
         }
+
+
     }
 }
